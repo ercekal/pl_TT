@@ -1,14 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { editProduct } from '../redux/actions'
 
 class ProductInput extends Component {
-
-  constructor(props, context) {
-    super(props, context)
-    this.state = {
-      inputText: '',
-      inputPrice: ''
-    }
-  }
 
   handleNameChange(event) {
     this.setState({
@@ -24,7 +18,8 @@ class ProductInput extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    this.props.addTodo(this.state.inputText, this.state.inputPrice)
+
+    this.props.addProduct(this.state.inputText, this.state.inputPrice)
     this.setState({
       inputText: '',
       inputPrice: ''
@@ -38,14 +33,14 @@ class ProductInput extends Component {
           <input
             type="text"
             placeholder="Product name"
-            value={this.state.inputText}
-            onChange={this.handleNameChange.bind(this)}
+            value={this.props.text}
+            onChange={value => { this.props.editProduct({ prop: 'text', value}) }}
           />
           <input
             type="text"
             placeholder="Product price"
-            value={this.state.inputPrice}
-            onChange={this.handlePriceChange.bind(this)}
+            value={this.props.price}
+            onChangeText={value => { this.props.editProduct({ prop: 'price', value}) }}
           />
           <input type="submit" value="Submit"/>
         </form>
@@ -55,4 +50,9 @@ class ProductInput extends Component {
 
 }
 
-export default ProductInput
+const mapStateToProps = (state) => {
+  const { text, price } = state.products
+  return { text, price }
+}
+
+export default connect(mapStateToProps, {editProduct})(ProductInput)

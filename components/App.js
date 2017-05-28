@@ -12,7 +12,9 @@ class App extends Component {
     return (
       <div>
         <h1>Todo List</h1>
-        <ProductInput addTodo={this.props.actions.addTodo}/>
+        <ProductInput
+          addProduct={this.props.actions.addProduct}
+        />
         <ProductList actions={this.props.actions} products={this.props.products}/>
         <Cart products={this.props.products}/>
       </div>
