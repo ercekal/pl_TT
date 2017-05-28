@@ -3,18 +3,14 @@ import ProductEdit from './ProductEdit'
 
 class ProductItem extends Component {
   constructor() {
-      super()
-      this.state = {
-        show: true
-      }
+    super()
+    this.state = {
+      show: true
     }
-
-  handleComplete() {
-    this.props.actions.completeTodo(this.props.product.id)
   }
 
   handleDelete() {
-    this.props.actions.deleteTodo(this.props.product.id)
+    this.props.actions.deleteProduct(this.props.product.id)
   }
 
   toggleEdit() {
@@ -30,7 +26,7 @@ class ProductItem extends Component {
         {this.state.show ?
           <div>
             <p>{this.props.product.text} - &#36;{this.props.product.price}</p>
-            <button onClick={this.toggleEdit.bind(this)}>Edit product</button>
+            {this.props.editMode ? <button onClick={this.toggleEdit.bind(this)}>Edit product</button> : ""}
           </div>
           :
           <div>

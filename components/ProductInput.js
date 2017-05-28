@@ -24,7 +24,7 @@ class ProductInput extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    this.props.addTodo(this.state.inputText, this.state.inputPrice)
+    this.props.addProduct(this.state.inputText, this.state.inputPrice)
     this.setState({
       inputText: '',
       inputPrice: ''

@@ -1,5 +1,5 @@
 let actions = {
-  addTodo: function(text, price) {
+  addProduct: function(text, price) {
     return {
       type: 'ADD_PRODUCT',
       text: text,
@@ -16,7 +16,7 @@ let actions = {
     }
   },
 
-  deleteTodo: function(id) {
+  deleteProduct: function(id) {
     return {
       type: 'DELETE_PRODUCT',
       id: id
