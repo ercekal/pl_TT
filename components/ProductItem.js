@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 
 class ProductItem extends Component {
-
+  constructor() {
+      super()
+      this.state = {
+        show: false
+      }
+    }
+    
   handleComplete() {
     this.props.actions.completeTodo(this.props.product.id)
   }

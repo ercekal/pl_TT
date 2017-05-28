@@ -5,19 +5,30 @@ class ProductInput extends Component {
   constructor(props, context) {
     super(props, context)
     this.state = {
-      inputText: ''
+      inputText: '',
+      inputPrice: ''
     }
   }
 
-  handleChange(event) {
+  handleNameChange(event) {
     this.setState({
       inputText: event.target.value
     })
   }
 
+  handlePriceChange(event) {
+    this.setState({
+      inputPrice: parseInt(event.target.value)
+    })
+  }
+
   handleSubmit(event) {
     event.preventDefault()
-    this.props.addTodo(this.state.inputText)
+    this.props.addTodo(this.state.inputText, this.state.inputPrice)
+    this.setState({
+      inputText: '',
+      inputPrice: ''
+    })
   }
 
   render() {
@@ -26,9 +37,15 @@ class ProductInput extends Component {
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input
             type="text"
-            placeholder="Type in your todo"
+            placeholder="Product name"
             value={this.state.inputText}
-            onChange={this.handleChange.bind(this)}
+            onChange={this.handleNameChange.bind(this)}
+          />
+          <input
+            type="text"
+            placeholder="Product price"
+            value={this.state.inputPrice}
+            onChange={this.handlePriceChange.bind(this)}
           />
           <input type="submit" value="Submit"/>
         </form>

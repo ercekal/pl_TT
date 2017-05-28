@@ -1,21 +1,24 @@
 let actions = {
-  addTodo: function(text) {
+  addTodo: function(text, price) {
     return {
-      type: 'ADD_TODO',
-      text: text
+      type: 'ADD_PRODUCT',
+      text: text,
+      price: price
     }
   },
 
-  completeTodo: function(id) {
+  completeTodo: function(id, text, price) {
     return {
-      type: 'COMPLETE_TODO',
-      id: id
+      type: 'EDIT_PRODUCT',
+      id: id,
+      text: text,
+      price: price
     }
   },
 
   deleteTodo: function(id) {
     return {
-      type: 'DELETE_TODO',
+      type: 'DELETE_PRODUCT',
       id: id
     }
   },
