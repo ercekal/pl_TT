@@ -26,9 +26,7 @@ export default class ProductEdit extends Component {
   handleSubmit(event) {
     event.preventDefault()
     this.props.editProduct(this.props.product.id, this.state.inputText, this.state.inputPrice)
-    this.setState({
-      showEdit: !this.state.showEdit
-    })
+    this.props.toggleShow()
   }
 
   render() {

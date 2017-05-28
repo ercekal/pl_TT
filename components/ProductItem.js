@@ -18,6 +18,7 @@ class ProductItem extends Component {
   }
 
   toggleEdit() {
+    console.log('hello');
     this.setState({
       show: !this.state.show
     })
@@ -36,6 +37,7 @@ class ProductItem extends Component {
             <ProductEdit
               product={this.props.product}
               editProduct={this.props.actions.editProduct}
+              toggleShow={this.toggleEdit.bind(this)}
             />
             <button onClick={this.toggleEdit.bind(this)}>Save changes</button>
             <button onClick={this.handleDelete.bind(this)}>Delete product</button>
