@@ -16,6 +16,13 @@ let actions = {
     }
   },
 
+  updateProduct: function({ prop, value}) {
+    return {
+      type: 'EDIT_PRODUCT',
+      payload: { prop, value }
+    }
+  },
+
   deleteTodo: function(id) {
     return {
       type: 'DELETE_PRODUCT',

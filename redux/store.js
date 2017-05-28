@@ -1,5 +1,5 @@
 import { applyMiddleware, compose, createStore } from 'redux'
-import reducer from './reducer'
+import rootReducers from '../reducers'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 
@@ -8,6 +8,6 @@ let finalCreateStore = compose(
 )(createStore)
 
 
-export default function configureStore(initialState = { products: [] }) {
-  return finalCreateStore(reducer, initialState)
+export default function configureStore(initialState = { products: [], productEdit: {} }) {
+  return finalCreateStore(rootReducers, initialState)
 }

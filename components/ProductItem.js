@@ -36,6 +36,7 @@ class ProductItem extends Component {
           :
           <div>
             <ProductEdit
+              updateProduct={this.props.actions.updateProduct}
               editProduct={this.props.actions.editProduct}
               product={this.props.product}
             />

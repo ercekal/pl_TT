@@ -4,7 +4,8 @@ function getId(state) {
   }, -1) + 1
 }
 
-let reducer = function(state, action) {
+const INITIAL_STATE = {}
+export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'ADD_PRODUCT':
       return Object.assign({}, state, {
@@ -31,5 +32,3 @@ let reducer = function(state, action) {
       return state;
   }
 }
-
-export default reducer
