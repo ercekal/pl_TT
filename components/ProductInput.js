@@ -52,7 +52,6 @@ class ProductInput extends Component {
       </div>
     )
   }
-
 }
 
 export default ProductInput

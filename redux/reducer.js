@@ -18,7 +18,10 @@ let reducer = function(state, action) {
       return Object.assign({}, state, {
         products: state.products.map((product) => {
           return product.id === action.id ?
-            Object.assign({}, product, {completed: !product.completed}) : product
+            Object.assign({}, product, {
+              text: action.text,
+              price: action.price
+            }) : product
         })
       })
     case 'DELETE_PRODUCT':

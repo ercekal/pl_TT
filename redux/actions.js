@@ -7,7 +7,7 @@ let actions = {
     }
   },
 
-  completeTodo: function(id, text, price) {
+  editProduct: function(id, text, price) {
     return {
       type: 'EDIT_PRODUCT',
       id: id,
