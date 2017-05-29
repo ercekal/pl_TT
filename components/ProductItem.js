@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ProductEdit from './ProductEdit'
-import {Grid, Col, Row, Button} from 'react-bootstrap'
+import {Grid, Col, Row, Button, Table} from 'react-bootstrap'
 
 class ProductItem extends Component {
   constructor() {
@@ -25,12 +25,15 @@ class ProductItem extends Component {
       <div>
         {
           this.state.show ?
-            <div>
-              <p>
-                {this.props.product.text} - &#163;{this.props.product.price}
-                {this.props.editMode && <a href="#" style={{fontSize: 14}} onClick={this.toggleEdit.bind(this)}>Edit</a>}
-              </p>
-            </div>
+            <Table style={{width: %60}} >
+              <tbody>
+                <tr>
+                  <td>{this.props.product.text}</td>
+                  <td style={{textAlign: 'right'}} >&#163;{this.props.product.price}</td>
+                  {this.props.editMode && <td><a href="#" style={{fontSize: 14, textAlign: 'left'}} onClick={this.toggleEdit.bind(this)}>Edit</a></td>}
+                </tr>
+              </tbody>
+            </Table>
           :
             <div>
               <ProductEdit
