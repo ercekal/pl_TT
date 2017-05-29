@@ -24,10 +24,11 @@ class App extends Component {
     return (
       <div>
         <h1>Quote details</h1>
-        {this.state.editMode ?
-          <a href="#" onClick={this.editMode.bind(this)}>Cancel Quote</a>
-          : <a href="#" onClick={this.editMode.bind(this)}>Amend Quote</a>}
-
+        {
+          this.state.editMode ?
+          <a href="#" onClick={this.editMode.bind(this)}>Cancel Quote</a> :
+          <a href="#" onClick={this.editMode.bind(this)}>Amend Quote</a>
+        }
         <ProductList actions={this.props.actions} products={this.props.products} editMode={this.state.editMode}/>
         <Cart products={this.props.products}/>
       </div>

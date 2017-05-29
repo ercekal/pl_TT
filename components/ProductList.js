@@ -24,13 +24,16 @@ class ProductList extends Component {
             return <ProductItem key={product.id} product={product} actions={this.props.actions} editMode={this.props.editMode}/>
           })
         }
-        { this.state.showInput ?
+        {
+          this.state.showInput ?
           <div>
             <ProductInput addProduct={this.props.actions.addProduct}/>
           </div>
-          : "" }
-
-        { this.props.editMode ? <button onClick={this.showInput.bind(this)}>+ Add quote item</button>
+          : ""
+        }
+        {
+          this.props.editMode ?
+          <button onClick={this.showInput.bind(this)}>+ Add quote item</button>
           : ""
         }
       </ul>
