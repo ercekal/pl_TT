@@ -8,10 +8,10 @@ class Cart extends Component {
 
     return (
       <div>
-        <p>Total (Excl. VAT): &#36;{Math.round(total / 1.2 *100)/100}</p>
-        <p>VAT: &#36;{Math.round(total * 0.2 / 1.2 *100)/100}</p>
+        <p><b>Total (Excl. VAT):</b> &#163;{Math.round(total / 1.2 *100)/100}</p>
+        <p><b>VAT:</b> &#163;{Math.round(total * 0.2 / 1.2 *100)/100}</p>
         <br/>
-        <p>Total - {total}</p>
+        <p><b>Total (Excl. VAT):</b> &#163;{total}</p>
       </div>
     )
   }

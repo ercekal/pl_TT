@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ProductEdit from './ProductEdit'
+import {Grid, Col, Row, Button} from 'react-bootstrap'
 
 class ProductItem extends Component {
   constructor() {
@@ -14,7 +15,6 @@ class ProductItem extends Component {
   }
 
   toggleEdit() {
-    console.log('hello');
     this.setState({
       show: !this.state.show
     })
@@ -22,12 +22,14 @@ class ProductItem extends Component {
 
   render() {
     return (
-      <li>
+      <div>
         {
           this.state.show ?
             <div>
-              <p>{this.props.product.text} - &#36;{this.props.product.price}</p>
-              {this.props.editMode ? <button onClick={this.toggleEdit.bind(this)}>Edit product</button> : ""}
+              <p>
+                {this.props.product.text} - &#163;{this.props.product.price}
+                {this.props.editMode && <a href="#" style={{fontSize: 14}} onClick={this.toggleEdit.bind(this)}>Edit</a>}
+              </p>
             </div>
           :
             <div>
@@ -36,11 +38,10 @@ class ProductItem extends Component {
                 editProduct={this.props.actions.editProduct}
                 toggleShow={this.toggleEdit.bind(this)}
               />
-              <button onClick={this.toggleEdit.bind(this)}>Save changes</button>
-              <button onClick={this.handleDelete.bind(this)}>Delete product</button>
+              <Button onClick={this.handleDelete.bind(this)}>Delete product</Button>
             </div>
         }
-      </li>
+      </div>
     )
   }
 }

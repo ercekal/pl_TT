@@ -32,26 +32,18 @@ export default class ProductEdit extends Component {
   render() {
     return (
       <div>
-        {this.state.showEdit ?
-        "" :
-        <div>
-          <form onSubmit={this.handleSubmit.bind(this)}>
-            <input
-              type="text"
-              placeholder="Product name"
-              value={this.state.inputText}
-              onChange={this.handleNameChange.bind(this)}
-            />
-            <input
-              type="text"
-              placeholder="Product price"
-              value={this.state.inputPrice}
-              onChange={this.handlePriceChange.bind(this)}
-            />
-            <input type="submit" value="Submit"/>
-          </form>
-        </div>
-        }
+        <input
+          type="text"
+          placeholder="Product name"
+          value={this.state.inputText}
+          onChange={this.handleNameChange.bind(this)}
+        />
+        <input
+          type="text"
+          placeholder="Product price"
+          value={this.state.inputPrice}
+          onChange={this.handlePriceChange.bind(this)}
+        />
       </div>
     )
   }

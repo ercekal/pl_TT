@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ProductInput from './ProductInput'
 import ProductList from './ProductList'
 import Cart from './Cart'
+import Update from './Update'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import actions from '../redux/actions'
@@ -11,7 +12,9 @@ class App extends Component {
   constructor() {
       super()
       this.state = {
-        editMode: false
+        editMode: false,
+        update: false,
+        discard: false
       }
     }
 
@@ -21,25 +24,50 @@ class App extends Component {
     })
   }
 
+  discardChanges() {
+    this.setState({
+      discard: !this.state.discard
+    })
+  }
+
+  updateQuote() {
+    this.setState({
+      update: !this.state.update
+    })
+  }
+
   render() {
     return (
       <Grid>
         <Row className="show-grid">
-          <Col md={6} mdPull={6}><h1>Quote details</h1></Col>
-          <Col md={6} mdPush={6}>
-            {
-              this.state.editMode ?
-              <a href="#" onClick={this.props.actions.cancelQuote}>Cancel Quote</a> :
-              <a href="#" onClick={this.editMode.bind(this)}>Amend Quote</a>
-            }
-          </Col>
+          {
+            this.state.editMode ?
+            <h3>Update quote <a href="#" style={{fontSize: 14, color: 'red'}} onClick={this.props.actions.cancelQuote}>Cancel Quote</a></h3>:
+            <h3>Quote details <a href="#" style={{fontSize: 14}} onClick={this.editMode.bind(this)}>Amend Quote</a></h3>
+          }
         </Row>
         <Row className="show-grid">
-          <ProductList actions={this.props.actions} products={this.props.products} editMode={this.state.editMode}/>
+          <ProductList
+            actions={this.props.actions}
+            products={this.props.products}
+            editMode={this.state.editMode}
+            update={this.state.update}
+            discard={this.state.discard}
+          />
         </Row>
         <Row className="show-grid">
           <Cart products={this.props.products}/>
         </Row>
+        {
+          this.state.editMode &&
+          <Row className="show-grid">
+            <Update
+              discardChanges={this.editMode.bind(this)}
+              updateQuote={this.updateQuote.bind(this)}
+              products={this.props.products}
+            />
+          </Row>
+        }
       </Grid>
     )
   }

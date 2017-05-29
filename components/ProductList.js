@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ProductItem from './ProductItem'
 import ProductInput from './ProductInput'
+import {Grid, Col, Row, Button} from 'react-bootstrap'
 
 class ProductList extends Component {
   constructor() {
@@ -18,25 +19,27 @@ class ProductList extends Component {
   render() {
 
     return (
-      <ul>
+      <Grid>
+        <Row>
+          {
+            this.props.products.map((product) => {
+              return <ProductItem key={product.id} product={product} actions={this.props.actions} editMode={this.props.editMode}/>
+            })
+          }
+        </Row>
+        <Row>
+          {
+            this.state.showInput &&
+            <div>
+              <ProductInput addProduct={this.props.actions.addProduct}/>
+            </div>
+          }
+        </Row>
         {
-          this.props.products.map((product) => {
-            return <ProductItem key={product.id} product={product} actions={this.props.actions} editMode={this.props.editMode}/>
-          })
+          this.props.editMode &&
+          <a href="#" onClick={this.showInput.bind(this)}>+ Add quote item</a>
         }
-        {
-          this.state.showInput ?
-          <div>
-            <ProductInput addProduct={this.props.actions.addProduct}/>
-          </div>
-          : ""
-        }
-        {
-          this.props.editMode ?
-          <button onClick={this.showInput.bind(this)}>+ Add quote item</button>
-          : ""
-        }
-      </ul>
+      </Grid>
     )
   }
 }

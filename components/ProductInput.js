@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 
 class ProductInput extends Component {
 
-  constructor(props, context) {
-    super(props, context)
+  constructor() {
+    super()
     this.state = {
       inputText: '',
       inputPrice: ''
