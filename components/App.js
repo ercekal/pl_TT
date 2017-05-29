@@ -20,19 +20,25 @@ class App extends Component {
 
   editMode() {
     this.setState({
-      editMode: !this.state.editMode
+      editMode: true,
+      discard: false,
+      update: false
     })
   }
 
   discardChanges() {
     this.setState({
-      discard: !this.state.discard
+      discard: true,
+      editMode: false,
+      update: false
     })
   }
 
   updateQuote() {
     this.setState({
-      update: !this.state.update
+      update: true,
+      discard: false,
+      editMode: false
     })
   }
 
@@ -62,7 +68,7 @@ class App extends Component {
           this.state.editMode &&
           <Row className="show-grid">
             <Update
-              discardChanges={this.editMode.bind(this)}
+              discardChanges={this.discardChanges.bind(this)}
               updateQuote={this.updateQuote.bind(this)}
               products={this.props.products}
             />

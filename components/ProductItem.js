@@ -37,6 +37,8 @@ class ProductItem extends Component {
                 product={this.props.product}
                 editProduct={this.props.actions.editProduct}
                 toggleShow={this.toggleEdit.bind(this)}
+                update={this.props.update}
+                discard={this.props.discard}
               />
               <Button onClick={this.handleDelete.bind(this)}>Delete product</Button>
             </div>
