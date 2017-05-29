@@ -46,22 +46,24 @@ class App extends Component {
     return (
       <Grid style={{paddingTop: 20}}>
         <Row className="show-grid">
-          <table width="40%">
-            <tr>
-              <td colspan="5">
-                {
-                  this.state.editMode ?
-                    <div>
-                      <span style={{float: 'left'}}><p style={{fontSize: 18}}>Update quote</p></span>
-                      <span style={{float: "right"}}><a href="#" style={{fontSize: 14, color: 'red'}} onClick={this.props.actions.cancelQuote}>Cancel Quote</a></span>
-                    </div> :
-                    <div>
-                      <span style={{float: 'left'}}><p style={{fontSize: 18}}>Update quote</p></span>
-                      <span style={{float: "right"}}><a href="#" style={{fontSize: 14}} onClick={this.editMode.bind(this)}>Amend Quote</a></span>
-                    </div>
-                }
-              </td>
-            </tr>
+          <table width="50%">
+            <tbody>
+              <tr>
+                <td>
+                  {
+                    this.state.editMode ?
+                      <div>
+                        <span style={{float: 'left'}}><p style={{fontSize: 18}}><b>Update quote</b></p></span>
+                        <span style={{float: "right"}}><a href="#" style={{fontSize: 14, color: 'red'}} onClick={this.props.actions.cancelQuote}>Cancel Quote</a></span>
+                      </div> :
+                      <div>
+                        <span style={{float: 'left'}}><p style={{fontSize: 18}}><b>Quote details</b></p></span>
+                        <span style={{float: "right"}}><a href="#" style={{fontSize: 14}} onClick={this.editMode.bind(this)}>Amend Quote</a></span>
+                      </div>
+                  }
+                </td>
+              </tr>
+            </tbody>
           </table>
         </Row>
         <Row className="show-grid">

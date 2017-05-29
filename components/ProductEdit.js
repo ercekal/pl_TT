@@ -46,21 +46,38 @@ export default class ProductEdit extends Component {
     })
   }
 
+  handleDelete() {
+    this.props.actions.deleteProduct(this.props.product.id)
+  }
+
   render() {
     return (
       <div>
-        <input
-          type="text"
-          placeholder="Product name"
-          value={this.state.inputText}
-          onChange={this.handleNameChange.bind(this)}
-        />
-        <input
-          type="text"
-          placeholder="Product price"
-          value={this.state.inputPrice}
-          onChange={this.handlePriceChange.bind(this)}
-        />
+        <table width="50%" style={{borderBottom: 'solid', borderColor: 'gray', borderWidth: 1}}>
+          <tbody>
+            <tr>
+              <td style={{paddingBottom: 5, paddingTop: 5}}>
+                <span style={{float: 'left'}}>
+                  <input
+                    type="text"
+                    placeholder="Product name"
+                    value={this.state.inputText}
+                    onChange={this.handleNameChange.bind(this)}
+                  />
+                </span>
+                <span style={{float: "right"}}>
+                  <input
+                    type="text"
+                    placeholder="Product price"
+                    value={this.state.inputPrice}
+                    onChange={this.handlePriceChange.bind(this)}
+                  />
+                  <a href="#" style={{color: 'red'}} onClick={this.handleDelete.bind(this)}>Delete</a>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     )
   }

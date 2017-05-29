@@ -13,12 +13,12 @@ class Update extends Component {
   render() {
 
     return (
-      <div>
+      <div style={{width: "50%", paddingTop: 20}}>
         <div>
-          <p>Plentific service fee is 10% of the total quote (ecl. VAT)</p>
-          <p>A 20% deposit will be requested from the customer.</p>
+          <p style={{fontSize: 12, display: 'flex', justifyContent: 'center'}}>Plentific service fee is 10% of the total quote (ecl. VAT)</p>
+          <p style={{fontSize: 12, display: 'flex', justifyContent: 'center'}}>A 20% deposit will be requested from the customer.</p>
         </div>
-        <div>
+        <div style={{display: 'flex', justifyContent: 'center', paddingTop: 20}}>
           <a href="#" style={{color: "gray", paddingRight: 50}}onClick={this.props.discardChanges}>Discard changes</a>
           <Button bsStyle="primary"  onClick={this.props.updateQuote}>Update</Button>
         </div>

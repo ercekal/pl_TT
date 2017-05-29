@@ -34,21 +34,31 @@ class ProductInput extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input
-            type="text"
-            placeholder="Product name"
-            value={this.state.inputText}
-            onChange={this.handleNameChange.bind(this)}
-          />
-          <input
-            type="text"
-            placeholder="Product price"
-            value={this.state.inputPrice}
-            onChange={this.handlePriceChange.bind(this)}
-          />
-          <input type="submit" value="Submit"/>
-        </form>
+        <table width="50%" style={{borderBottom: 'solid', borderColor: 'gray', borderWidth: 1}}>
+          <tbody>
+            <tr>
+              <td style={{paddingBottom: 5, paddingTop: 5}}>
+                <span style={{float: 'left'}}>
+                  <input
+                    type="text"
+                    placeholder="Product name"
+                    value={this.state.inputText}
+                    onChange={this.handleNameChange.bind(this)}
+                  />
+                </span>
+                <span style={{float: "right"}}>
+                  <input
+                    type="text"
+                    placeholder="Product price"
+                    value={this.state.inputPrice}
+                    onChange={this.handlePriceChange.bind(this)}
+                  />
+                <a href="#" style={{color: 'blue', paddingRight: 10}} onClick={this.handleSubmit.bind(this)}>Save</a>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     )
   }

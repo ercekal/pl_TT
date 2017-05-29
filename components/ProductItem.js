@@ -10,10 +10,6 @@ class ProductItem extends Component {
     }
   }
 
-  handleDelete() {
-    this.props.actions.deleteProduct(this.props.product.id)
-  }
-
   toggleEdit() {
     this.setState({
       show: !this.state.show
@@ -25,13 +21,15 @@ class ProductItem extends Component {
       <div>
         {
           this.state.show ?
-            <table width="40%" style={{borderBottom: 'solid', borderColor: 'gray', borderWidth: 1}}>
-              <tr>
-                <td colspan="5" style={{paddingBottom: 5, paddingTop: 5}}>
-                  <span style={{float: 'left'}}>{this.props.product.text}</span>
-                  <span style={{float: "right"}}>&#163;{this.props.product.price}  {this.props.editMode && <a href="#" style={{fontSize: 14, textAlign: 'left'}} onClick={this.toggleEdit.bind(this)}>Edit</a>}</span>
-                </td>
-              </tr>
+            <table width="50%" style={{borderBottom: 'solid', borderColor: 'gray', borderWidth: 1}}>
+              <tbody>
+                <tr>
+                  <td style={{paddingBottom: 5, paddingTop: 5}}>
+                    <span style={{float: 'left'}}>{this.props.product.text}</span>
+                    <span style={{float: "right"}}>&#163;{this.props.product.price.toFixed(2)}  {this.props.editMode && <a href="#" style={{fontSize: 14, textAlign: 'left'}} onClick={this.toggleEdit.bind(this)}>Edit</a>}</span>
+                  </td>
+                </tr>
+              </tbody>
             </table>
           :
             <div>
@@ -41,8 +39,8 @@ class ProductItem extends Component {
                 toggleShow={this.toggleEdit.bind(this)}
                 update={this.props.update}
                 discard={this.props.discard}
+                actions={this.props.actions}
               />
-              <Button onClick={this.handleDelete.bind(this)}>Delete product</Button>
             </div>
         }
       </div>
