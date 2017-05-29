@@ -5,10 +5,10 @@ import {Grid, Col, Row, Button} from 'react-bootstrap'
 
 class ProductList extends Component {
 
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
-      showInput: props.editMode
+      showInput: false
     }
   }
 
@@ -24,13 +24,19 @@ class ProductList extends Component {
         <Row>
           {
             this.props.products.map((product) => {
-              return <ProductItem key={product.id} product={product} actions={this.props.actions} editMode={this.props.editMode} update={this.props.update} discard={this.props.discard}/>
+              return <ProductItem
+                      key={product.id}
+                      product={product}
+                      actions={this.props.actions}
+                      editMode={this.props.editMode}
+                      update={this.props.update}
+                      discard={this.props.discard}/>
             })
           }
         </Row>
         <Row>
           {
-            this.state.showInput &&
+            (this.state.showInput && this.props.update === false && this.props.discard === false) &&
             <div>
               <ProductInput addProduct={this.props.actions.addProduct}/>
             </div>
