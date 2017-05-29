@@ -30,6 +30,10 @@ let reducer = function(state, action) {
           return product.id !== action.id
         })
       })
+      case 'CANCEL_QUOTE':
+        return Object.assign({}, state, {
+          products: []
+          })
     default:
       return state;
   }

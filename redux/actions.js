@@ -22,6 +22,11 @@ let actions = {
       id: id
     }
   },
+  cancelQuote: function(id) {
+    return {
+      type: 'CANCEL_QUOTE',
+    }
+  },
 
 }
 
