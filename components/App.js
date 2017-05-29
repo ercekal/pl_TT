@@ -21,24 +21,24 @@ class App extends Component {
   editMode() {
     this.setState({
       editMode: true,
-      discard: false,
-      update: false
+      update: false,
+      discard: false
     })
   }
 
   discardChanges() {
     this.setState({
-      discard: true,
       editMode: false,
-      update: false
+      update: false,
+      discard: true
     })
   }
 
   updateQuote() {
     this.setState({
+      editMode: false,
       update: true,
-      discard: false,
-      editMode: false
+      discard: false
     })
   }
 

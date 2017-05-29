@@ -19,8 +19,8 @@ class Update extends Component {
           <p>A 20% deposit will be requested from the customer.</p>
         </div>
         <div>
-          <Button onClick={this.props.discardChanges}>Discard changes</Button>
-          <Button onClick={this.props.updateQuote}>Update</Button>
+          <a href="#" style={{color: "gray", paddingRight: 50}}onClick={this.props.discardChanges}>Discard changes</a>
+          <Button bsStyle="primary"  onClick={this.props.updateQuote}>Update</Button>
         </div>
       </div>
     )
