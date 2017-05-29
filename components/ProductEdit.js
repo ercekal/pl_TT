@@ -7,19 +7,15 @@ export default class ProductEdit extends Component {
     this.state = {
       inputText: props.product.text,
       inputPrice: props.product.price,
-      show: false,
       update: false
     }
   }
 
   componentWillUpdate(nextProps, nextState) {
     if (nextProps.update === true && this.state.update === false) {
-      this.handleSubmit()
+      this.handleUpdate()
     } else if (nextProps.discard === true) {
-      this.props.toggleShow()
-      this.setState({
-        update: false
-      })
+      this.handleDiscard()
     }
   }
 
@@ -35,12 +31,19 @@ export default class ProductEdit extends Component {
     })
   }
 
-  handleSubmit(event) {
+  handleUpdate() {
     this.props.editProduct(this.props.product.id, this.state.inputText, this.state.inputPrice)
     this.setState({
       update: true
     })
     this.props.toggleShow()
+  }
+
+  handleDiscard() {
+    this.props.toggleShow()
+    this.setState({
+      update: false
+    })
   }
 
   render() {

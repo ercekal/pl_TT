@@ -36,7 +36,7 @@ class ProductList extends Component {
         </Row>
         <Row>
           {
-            (this.state.showInput && this.props.update === false && this.props.discard === false) &&
+            (this.state.showInput && this.props.editMode) &&
             <div>
               <ProductInput addProduct={this.props.actions.addProduct}/>
             </div>
