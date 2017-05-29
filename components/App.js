@@ -44,13 +44,25 @@ class App extends Component {
 
   render() {
     return (
-      <Grid>
+      <Grid style={{paddingTop: 20}}>
         <Row className="show-grid">
-          {
-            this.state.editMode ?
-            <h3>Update quote <a href="#" style={{fontSize: 14, color: 'red'}} onClick={this.props.actions.cancelQuote}>Cancel Quote</a></h3>:
-            <h3>Quote details <a href="#" style={{fontSize: 14}} onClick={this.editMode.bind(this)}>Amend Quote</a></h3>
-          }
+          <table width="40%">
+            <tr>
+              <td colspan="5">
+                {
+                  this.state.editMode ?
+                    <div>
+                      <span style={{float: 'left'}}><p style={{fontSize: 18}}>Update quote</p></span>
+                      <span style={{float: "right"}}><a href="#" style={{fontSize: 14, color: 'red'}} onClick={this.props.actions.cancelQuote}>Cancel Quote</a></span>
+                    </div> :
+                    <div>
+                      <span style={{float: 'left'}}><p style={{fontSize: 18}}>Update quote</p></span>
+                      <span style={{float: "right"}}><a href="#" style={{fontSize: 14}} onClick={this.editMode.bind(this)}>Amend Quote</a></span>
+                    </div>
+                }
+              </td>
+            </tr>
+          </table>
         </Row>
         <Row className="show-grid">
           <ProductList

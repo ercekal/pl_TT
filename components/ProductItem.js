@@ -25,12 +25,14 @@ class ProductItem extends Component {
       <div>
         {
           this.state.show ?
-            <div>
-              <p>
-                {this.props.product.text} - &#163;{this.props.product.price}
-                {this.props.editMode && <a href="#" style={{fontSize: 14}} onClick={this.toggleEdit.bind(this)}>Edit</a>}
-              </p>
-            </div>
+            <table width="40%" style={{borderBottom: 'solid', borderColor: 'gray', borderWidth: 1}}>
+              <tr>
+                <td colspan="5" style={{paddingBottom: 5, paddingTop: 5}}>
+                  <span style={{float: 'left'}}>{this.props.product.text}</span>
+                  <span style={{float: "right"}}>&#163;{this.props.product.price}  {this.props.editMode && <a href="#" style={{fontSize: 14, textAlign: 'left'}} onClick={this.toggleEdit.bind(this)}>Edit</a>}</span>
+                </td>
+              </tr>
+            </table>
           :
             <div>
               <ProductEdit

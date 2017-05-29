@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ProductItem from './ProductItem'
 import ProductInput from './ProductInput'
-import {Grid, Col, Row, Button, ListGroupItem, ListGroup} from 'react-bootstrap'
+import {Grid, Col, Row, Button} from 'react-bootstrap'
 
 class ProductList extends Component {
 
@@ -22,23 +22,17 @@ class ProductList extends Component {
     return (
       <Grid>
         <Row>
-          <ListGroup>
-            {
-              this.props.products.map((product) => {
-                return (
-                  <ListGroupItem>
-                    <ProductItem
+          {
+            this.props.products.map((product) => {
+              return <ProductItem
                       key={product.id}
                       product={product}
                       actions={this.props.actions}
                       editMode={this.props.editMode}
                       update={this.props.update}
                       discard={this.props.discard}/>
-                  </ListGroupItem>
-                )
-              })
-            }
-          </ListGroup>
+            })
+          }
         </Row>
         <Row>
           {
